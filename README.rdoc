@@ -1,0 +1,236 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+
+List of commands
+> rails s
+> rake db:migrate
+> bundle install
+> rails generate bootstrap:install less
+
+
+
+
+curl command to create users:
+
+Create User:
+curl -X POST http://localhost:3000/users.json -H "Content-Type: application/json" --data  '{ "user": {"name": "sachin maharjan", "city": "san francisco" } }'
+
+Success Response:
+{ "id":2,"name":"sachin maharjan","city":"san francisco","created_at":"2015-04-16T21:02:40.143Z","updated_at":"2015-04-16T21:02:40.143Z"}
+
+
+Post lists
+curl -X GET http://localhost:3000/posts/list.json
+-- need to get image
+
+Createa a post
+curl -X POST http://localhost:3000/posts.json -H "Content-Type: application/json" --data  '{ "post": {"user_id": 1, "author": "sachin maharjan", "title": "some title", "content" : "some content here" } }'
+
+Response:
+{
+  "id": 5,
+  "author": "sachin maharjan",
+  "title": "some title",
+  "content": "some content here",
+  "created_at": "2015-04-17 06:37:53 UTC",
+  "updated_at": "2015-04-17 06:37:53 UTC",
+  "user_id": 1
+}
+
+Bad Request:
+curl -X POST http://localhost:3000/posts.json -H "Content-Type: application/json" --data  '{ "post": {"user_id": 1, "author": "", "title": "", "content" : "some content here" } }'
+
+Response:
+{
+  "author": [
+    "can't be blank"
+  ],
+  "title": [
+    "can't be blank"
+  ]
+}
+
+View Individual Post:
+curl -X GET http://localhost:3000/posts/1
+
+{
+  "id": 1,
+  "author": "Sachin Maharjan",
+  "title": "How was you day?",
+  "content": "Today was a great day.",
+  "created_at": "2015-04-16 20:29:12 UTC",
+  "updated_at": "2015-04-17 06:30:05 UTC",
+  "user_id": 1
+}
+
+
+Update a post
+curl -X PUT http://localhost:3000/posts/1 -H "Content-Type: application/json" --data  '{ "post": {"id": 1, "author": "samwise gamjie"} }'
+
+Response:
+{
+  "id": 1,
+  "author": "samwise gamjie",
+  "title": "How was you day?",
+  "content": "Today was a great day.",
+  "created_at": "2015-04-16 20:29:12 UTC",
+  "updated_at": "2015-04-17 06:56:27 UTC",
+  "user_id": 1
+}
+
+Delete a post
+curl -X DELETE http://localhost:3000/posts/3
+{ Successfully deleted post.}
+
+
+Createa a image
+curl -X POST http://localhost:3000/images.json -H "Content-Type: application/json" --data  '{ "image": {"post_id": 1, "path": "http://upload.wikimedia.org/wikipedia/commons/4/4e/Mavericks_Surf_Contest_2010b.jpg"} }'
+
+Response:
+{
+  "id": 2,
+  "post_id": 1,
+  "path": "http://upload.wikimedia.org/wikipedia/commons/4/4e/Mavericks_Surf_Contest_2010b.jpg",
+  "created_at": "2015-04-17 07:22:45 UTC",
+  "updated_at": "2015-04-17 07:22:45 UTC",
+  "deleted": false
+}
+
+
+
+Delete an image
+curl -X DELETE http://localhost:3000/images/2
+
+{ Successfully deleted image.}
+
+
+
+Commets lists
+curl -X GET http://localhost:3000/comments/list.json -H "Content-Type: application/json" --data  '{"post_id": 1
+
+
+
+Create Comment
+curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" --data  '{ "comment": {"post_id": 1, "message": "hey this is first comment"} }'
+
+curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" --data  '{ "comment": {"post_id": 1, "message": "hey this is second comment"} }'
+
+{
+  "id": 1,
+  "post_id": 1,
+  "parent_id": null,
+  "message": "hey this is first comment",
+  "created_at": "2015-04-17 14:53:40 UTC",
+  "updated_at": "2015-04-17 14:53:40 UTC"
+}
+
+
+  "id": 2,
+  "post_id": 1,
+  "parent_id": null,
+  "message": "hey this is second comment",
+  "created_at": "2015-04-17 14:55:24 UTC",
+  "updated_at": "2015-04-17 14:55:24 UTC"
+}
+
+
+Commets lists
+curl -X GET http://localhost:3000/comments/list.json -H "Content-Type: application/json" --data  '{"post_id": 1 }'
+
+Response:
+
+[
+  {
+    "id": 1,
+    "post_id": 1,
+    "parent_id": null,
+    "message": "hey this is first comment",
+    "created_at": "2015-04-17 14:53:40 UTC",
+    "updated_at": "2015-04-17 14:53:40 UTC"
+  },
+  {
+    "id": 2,
+    "post_id": 1,
+    "parent_id": null,
+    "message": "hey this is second comment",
+    "created_at": "2015-04-17 14:55:24 UTC",
+    "updated_at": "2015-04-17 14:55:24 UTC"
+  }
+
+
+Delete a comment
+curl -X DELETE http://localhost:3000/comments/2
+
+Response
+{ Successfully deleted post.}
+
+
+Create Comment on Comment
+curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" --data  '{ "comment": {"post_id": 1, "parent_id": 1, "message": "hey this is comment on comment"} }'
+
+curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" --data  '{ "comment": {"post_id": 7, "parent_id": 1, "message": "hey this is comment on comment"} }'
+
+
+
+{
+  "id": 3,
+  "post_id": 1,
+  "parent_id": 1,
+  "message": "hey this is comment on comment",
+  "created_at": "2015-04-17 15:02:08 UTC",
+  "updated_at": "2015-04-17 15:02:08 UTC"
+}
+
+
+
+Seeds:
+db/seeds.rb
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+u1 = User.create(email: 'user@example.com', password: 'password')
+u2 = User.create(email: 'user2@example.com', password: 'password')
+
+p1 = u1.posts.create(title: 'First Post', body: 'An Airplane')
+p2 = u1.posts.create(title: 'Second Post', body: 'A Train')
+
+p3 = u2.posts.create(title: 'Third Post', body: 'A Truck')
+p4 = u2.posts.create(title: 'Fourth Post', body: 'A Boat')
+
+p3.comments.create(body: "This post was terrible", user: u1)
+p4.comments.create(body: "This post was the best thing in the whole world", user: u1)

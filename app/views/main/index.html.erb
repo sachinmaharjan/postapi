@@ -1,0 +1,40 @@
+<h1>Welcome to PostAPI</h1>
+<p>
+  PostApp is a simple blog post app created using Ruby on Rails.
+</p>
+
+
+<p><strong>Model and Properties</strong></p>
+
+<ul>
+  <li>Users # have name, city</li>
+  <li>Posts # have an author, title, content, timestamps</li>
+  <li>Images # have a parent post</li>
+  <li>Comments # a nested/threaded list (a comment can have children comments & threads)</li>
+</ul>
+
+<p>The app have a JSON API</p>
+
+<p><strong>Posts</strong></p>
+
+<ul>
+  <li>list - return most recent posts, as an array of</li>
+  <li>id, title, author_name, author_city, array of images</li>
+  <li>create</li>
+  <li>view an individual post</li>
+  <li>update post</li>
+  <li>delete a post</li>
+</ul>
+
+<p><strong>Images</strong></p>
+  <ul>
+    <li>add image to a post</li>
+    <li>delete image</li>
+  </ul>
+<p><strong>Comments</strong></p>
+
+<ul>
+  <li>list comments for a post</li>
+  <li>create a comment</li>
+  <li>delete a comment / comment thread you've created.</li>
+</ul>
