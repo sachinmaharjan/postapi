@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20150416182234) do
 
   create_table "comments", force: true do |t|
     t.integer  "post_id"
+    t.integer  "user_id"
     t.integer  "parent_id"
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "images", force: true do |t|
