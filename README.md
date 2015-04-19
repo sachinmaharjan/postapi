@@ -1,14 +1,45 @@
 # postapi json app
 
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+#### Models and properties:
+
+- Users # have name, city
+- Posts # have an author, title, content, timestamps
+- Images # have a parent post
+- Comments # a nested/threaded list (a comment can have children comments & threads)
+
+The app should have a JSON API that has the following endpoints / cases:
+
+#### Posts
+
+- list - return most recent posts, as an array of
+  - id, title, author_name, author_city, array of images
+- create
+- view an individual post
+- update post
+- delete a post
+
+#### Images
+
+- add image to a post
+- delete image
+
+#### Comments
+
+- list comments for a post
+- create a comment
+- delete a comment / comment thread you've created.
+
 List of commands
 
-* rails s
-* rake db:migrate
+* rake db:create db:migrate
 * bundle install
 * rails generate bootstrap:install less
+* rake routes
+* rails s
 
 ## User
 
