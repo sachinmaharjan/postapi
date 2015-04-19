@@ -319,4 +319,3 @@ curl -X GET http://localhost:3000/report/activities_by_city
 - Since it was a api only, I have removed the views for all the controllers except main. Add views.
 - Adding api access for only authorized users
 - We are only saving link for image right now. Image upload might help. filepicker-rails gem
--
