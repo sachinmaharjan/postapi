@@ -41,6 +41,13 @@ List of commands
 * rake routes
 * rails s
 
+Running test
+
+* rspec spec/ #runs all the test
+* rspec spec/models
+* rspec spec/controllers --color
+
+
 ## User
 
 ### Create User:
