@@ -1,5 +1,4 @@
 class Comment < ActiveRecord::Base
-  # attr_accessible :post_id, :user_id, :parent_id, :message, :deleted
   acts_as_tree order: 'created_at DESC'
   default_scope -> { order('created_at DESC') }
 
