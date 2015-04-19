@@ -5,10 +5,10 @@ application up and running.
 
 List of commands
 ```
-> rails s
-> rake db:migrate
-> bundle install
-> rails generate bootstrap:install less
+rails s
+rake db:migrate
+bundle install
+rails generate bootstrap:install less
 ```
 
 ###User
