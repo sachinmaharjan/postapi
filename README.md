@@ -1,4 +1,4 @@
-# postapi json app
+# postapi app
 
 
 This README documents steps necessary to get the application up and running.
@@ -48,6 +48,8 @@ The app should have a JSON API that has the following endpoints / cases:
 > rspec spec/models
 > rspec spec/controllers --color
 ```
+
+# API endpoints
 
 ## User
 
@@ -321,3 +323,4 @@ curl -X GET http://localhost:3000/report/activities_by_city
 - Currently image file is only link. Image upload might help. filepicker-rails gem
 - Post are loaded all. Should only load posts related to given user only.
 - Report for user with number of post, number of comments made
+- Allow to pull only x number of records per call (limit to 50 or 100)
