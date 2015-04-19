@@ -38,7 +38,6 @@ The app should have a JSON API that has the following endpoints / cases:
 ```
 > rake db:create db:migrate
 > bundle install
-> rails generate bootstrap:install less
 > rake routes
 > rails s
 ```
