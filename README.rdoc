@@ -4,11 +4,12 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 List of commands
+```
 > rails s
 > rake db:migrate
 > bundle install
 > rails generate bootstrap:install less
-
+```
 
 ###User
 ####Create User:
