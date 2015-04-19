@@ -12,11 +12,12 @@ List of commands
 
 ### User
 #### Create User:
-```
+
+```ruby
 curl -X POST http://localhost:3000/users.json -H "Content-Type: application/json" --data  '{ "user": {"name": "sachin maharjan", "city": "san francisco" } }'
 ```
 Response:
-```
+```ruby
 { "id":2,"name":"sachin maharjan","city":"san francisco","created_at":"2015-04-16T21:02:40.143Z","updated_at":"2015-04-16T21:02:40.143Z"}
 ```
 
