@@ -33,20 +33,23 @@ The app should have a JSON API that has the following endpoints / cases:
 - create a comment
 - delete a comment / comment thread you've created.
 
-List of commands
+##### List of commands
 
-* rake db:create db:migrate
-* bundle install
-* rails generate bootstrap:install less
-* rake routes
-* rails s
+```
+> rake db:create db:migrate
+> bundle install
+> rails generate bootstrap:install less
+> rake routes
+> rails s
+```
 
-Running test
+##### Running test
 
-* rspec spec/ #runs all the test
-* rspec spec/models
-* rspec spec/controllers --color
-
+```
+> rspec spec/ #runs all the test
+> rspec spec/models
+> rspec spec/controllers --color
+```
 
 ## User
 
