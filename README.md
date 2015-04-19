@@ -11,27 +11,33 @@ List of commands
 * rails generate bootstrap:install less
 
 ### User
-#### Create User:
+
+### Create User:
 
 ```ruby
 curl -X POST http://localhost:3000/users.json -H "Content-Type: application/json" --data  '{ "user": {"name": "sachin maharjan", "city": "san francisco" } }'
 ```
 Response:
-```ruby
+``
 { "id":2,"name":"sachin maharjan","city":"san francisco","created_at":"2015-04-16T21:02:40.143Z","updated_at":"2015-04-16T21:02:40.143Z"}
-```
+``
 
 ### Post
-#### Post lists
+
+### Post lists
+
 ```
 curl -X GET http://localhost:3000/posts/list.json
 ```
 
-#### Createa a post
+### Createa a post
+
 ```
 curl -X POST http://localhost:3000/posts.json -H "Content-Type: application/json" --data  '{ "post": {"user_id": 1, "author": "sachin maharjan", "title": "some title", "content" : "some content here" } }'
 ```
+
 Response:
+
 ```
 {
   "id": 5,
@@ -43,11 +49,15 @@ Response:
   "user_id": 1
 }
 ```
-#### Invalid Request:
+
+### Invalid Request:
+
 ```
 curl -X POST http://localhost:3000/posts.json -H "Content-Type: application/json" --data  '{ "post": {"user_id": 1, "author": "", "title": "", "content" : "some content here" } }'
 ```
+
 Response:
+
 ```
 {
   "author": [
@@ -59,7 +69,8 @@ Response:
 }
 ```
 
-#### View Individual Post:
+### View Individual Post:
+
 ```
 curl -X GET http://localhost:3000/posts/1
 
@@ -75,6 +86,7 @@ curl -X GET http://localhost:3000/posts/1
 ```
 
 ### Update a post
+
 ```
 curl -X PUT http://localhost:3000/posts/1 -H "Content-Type: application/json" --data  '{ "post": {"id": 1, "author": "samwise gamjie"} }'
 
@@ -89,14 +101,16 @@ curl -X PUT http://localhost:3000/posts/1 -H "Content-Type: application/json" --
 }
 ```
 
-#### Delete a post
+### Delete a post
+
 ```
 curl -X DELETE http://localhost:3000/posts/3
 { Successfully deleted post.}
 ```
 
 
-#### Createa a image
+### Createa a image
+
 ```
 curl -X POST http://localhost:3000/images.json -H "Content-Type: application/json" --data  '{ "image": {"post_id": 1, "path": "http://upload.wikimedia.org/wikipedia/commons/4/4e/Mavericks_Surf_Contest_2010b.jpg"} }'
 
@@ -112,6 +126,7 @@ curl -X POST http://localhost:3000/images.json -H "Content-Type: application/jso
 
 
 ### Delete an image
+
 ```
 curl -X DELETE http://localhost:3000/images/2
 
@@ -120,16 +135,17 @@ curl -X DELETE http://localhost:3000/images/2
 
 
 ### Commets lists
+
 ```
 curl -X GET http://localhost:3000/comments/list.json -H "Content-Type: application/json" --data  '{"post_id": 1
 ```
 
 
-#### Create Comment
+### Create Comment
+
 ```
 curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" --data  '{ "comment": {"post_id": 1, "message": "hey this is first comment"} }'
-```
-```
+
 {
   "id": 1,
   "post_id": 1,
@@ -138,12 +154,11 @@ curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" 
   "created_at": "2015-04-17 14:53:40 UTC",
   "updated_at": "2015-04-17 14:53:40 UTC"
 }
+```
 
 ```
-```
 curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" --data  '{ "comment": {"post_id": 1, "message": "hey this is second comment"} }'
-```
-```
+
 {
   "id": 2,
   "post_id": 1,
@@ -154,12 +169,11 @@ curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" 
 }
 ```
 
-#### Commets lists
+### Commets lists
+
 ```
 curl -X GET http://localhost:3000/comments/list.json -H "Content-Type: application/json" --data  '{"post_id": 1 }'
-```
-Response:
-```
+
 [
   {
     "id": 1,
@@ -179,22 +193,18 @@ Response:
   }
 ```
 
-#### Delete a comment
+### Delete a comment
+
 ```
 curl -X DELETE http://localhost:3000/comments/2
-```
-Response
-```
+
 { Successfully deleted post.}
 ```
 
-#### Create Comment on Comment
+### Create Comment on Comment
 ```
 curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" --data  '{ "comment": {"post_id": 1, "parent_id": 1, "message": "hey this is comment on comment"} }'
 
-curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" --data  '{ "comment": {"post_id": 7, "parent_id": 1, "message": "hey this is comment on comment"} }'
-```
-```
 {
   "id": 3,
   "post_id": 1,
@@ -205,12 +215,11 @@ curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" 
 }
 ```
 
-#### Reports
+### Reports
+
 ```
 curl -X GET http://localhost:3000/reports
-```
-Response
-```
+
 [
  {
    "city": "San Francisco",
