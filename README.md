@@ -10,19 +10,23 @@ List of commands
 * bundle install
 * rails generate bootstrap:install less
 
-### User
+## User
 
 ### Create User:
 
-```ruby
-curl -X POST http://localhost:3000/users.json -H "Content-Type: application/json" --data  '{ "user": {"name": "sachin maharjan", "city": "san francisco" } }'
 ```
-Response:
-``
-{ "id":2,"name":"sachin maharjan","city":"san francisco","created_at":"2015-04-16T21:02:40.143Z","updated_at":"2015-04-16T21:02:40.143Z"}
-``
+curl -X POST http://localhost:3000/users.json -H "Content-Type: application/json" --data  '{ "user": {"name": "sachin maharjan", "city": "san francisco" } }'
 
-### Post
+{
+  "id": 1,
+  "name": "sachin maharjan",
+  "city": "san francisco",
+  "created_at": "2015-04-19 18:52:10 UTC",
+  "updated_at": "2015-04-19 18:52:10 UTC"
+}
+```
+
+## Post
 
 ### Post lists
 
@@ -108,7 +112,7 @@ curl -X DELETE http://localhost:3000/posts/3
 { Successfully deleted post.}
 ```
 
-
+## Image
 ### Createa a image
 
 ```
@@ -133,6 +137,7 @@ curl -X DELETE http://localhost:3000/images/2
 { Successfully deleted image.}
 ```
 
+## Comment
 
 ### Commets lists
 
@@ -215,10 +220,15 @@ curl -X POST http://localhost:3000/comments -H "Content-Type: application/json" 
 }
 ```
 
-### Reports
+## Reports
 
+### Get activities by city
 ```
 curl -X GET http://localhost:3000/reports
+
+or
+
+curl -X GET http://localhost:3000/report/activities_by_city
 
 [
  {
