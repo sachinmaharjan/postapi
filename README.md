@@ -1,8 +1,7 @@
 # postapi json app
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README documents steps necessary to get the application up and running.
 
 #### Models and properties:
 
@@ -316,6 +315,9 @@ curl -X GET http://localhost:3000/report/activities_by_city
 
 ### Next Steps
 
-- Since it was a api only, I have removed the views for all the controllers except main. Add views.
+- Since it was an api only, I removed all the views except main. Add views back.
 - Adding api access for only authorized users
-- We are only saving link for image right now. Image upload might help. filepicker-rails gem
+- Add email to user which will give us more control and easy to have login features
+- Currently image file is only link. Image upload might help. filepicker-rails gem
+- Post are loaded all. Should only load posts related to given user only.
+- Report for user with number of post, number of comments made
