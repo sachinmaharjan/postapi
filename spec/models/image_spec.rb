@@ -1,37 +1,24 @@
 require 'rails_helper'
 
-describe Post do
-  def new_post(attributes = {})
-    attributes[:author] ||= 'some author'
-    attributes[:title] ||= 'some title'
-    attributes[:content] ||= 'some content'
+describe Image do
+  def new_image(attributes = {})
+    attributes[:path] ||= 'some path'
     attributes[:post_id] ||= 1
     Post.new(attributes)
   end
 
-  it "should create a new instance of a post given valid attributes" do
-    @post_attr =  FactoryGirl.attributes_for(:post)
-    Post.create!(@post_attr)
+  it "should create a new instance of a image given valid attributes" do
+    @image_attr =  FactoryGirl.attributes_for(:image)
+    Image.create!(@image_attr)
   end
 
 
-  it "should require title" do
-    post = Post.new(:title => "")
-    expect(post.valid?).to eq(false)
-    expect(post.errors[:title]).to eq(["can't be blank"])
+  it "should require path" do
+    img = Image.new(:path => "")
+    expect(img.valid?).to eq(false)
+    expect(img.errors[:path]).to eq(["can't be blank"])
   end
 
-  it "should require author" do
-    post = Post.new(:author => "")
-    expect(post.valid?).to eq(false)
-    expect(post.errors[:author]).to eq(["can't be blank"])
-  end
-
-  it "should require content" do
-    post = Post.new(:content => "")
-    expect(post.valid?).to eq(false)
-    expect(post.errors[:content]).to eq(["can't be blank"])
-  end
 
   it "should require user_id" do
     post = Post.new(:user_id => "")

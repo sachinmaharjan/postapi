@@ -39,8 +39,8 @@ describe CommentsController do
       @parent_comment = FactoryGirl.create :comment
       post :create, comment: { post_id: 1, message: "Second comment", user_id: 1, parent_id: @parent_comment.id }
       expect(response.status).to eq 201
-      expect(Comment.second.message).to eq "Second comment"
-      expect(Comment.second.parent_id).to eq @parent_comment.id
+      expect(Comment.first.message).to eq "Second comment"
+      expect(Comment.first.parent_id).to eq @parent_comment.id
     end
 
     it "should return unprocessable_entity for errors" do
